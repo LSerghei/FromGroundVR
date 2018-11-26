@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
-	public float speed;
-	
-	//private Rigidbody rigid;
+	//public float speed;
+	public float rotSpeed = 90; // rotate speed in degrees/second
+
 	private CharacterController fplayer;
 	private PlayerLog eventLog;
 
 	// Use this for initialization
 	void Start () 
 	{
-		//rigid = GetComponent<Rigidbody>();
 		fplayer = GetComponent<CharacterController>();
 		eventLog = GetComponent<PlayerLog>();
 	}
@@ -21,18 +20,18 @@ public class PlayerMovement : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate()
 	{
-        float Horizontal = Input.GetAxis("Horizontal");
-		float Vertical = Input.GetAxis("Vertical");
+		float Horizontal = Input.GetAxis ("Horizontal") * Time.deltaTime * rotSpeed;
+		float Vertical = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f;
 
-		Vector3 move = new Vector3(Horizontal, 0.0f, Vertical);
-
-		fplayer.Move(move * speed);
-		//rigid.AddForce(move * speed);
+		transform.Rotate(0, Horizontal, 0);  
+		var forward = transform.TransformDirection(Vector3.forward);
+		float curSpeed = Vertical;
+		fplayer.Move(forward * curSpeed);
 
 		if (Input.GetKey(KeyCode.A))
 			eventLog.AddEvent("Player Moves Left");
 
 		if (Input.GetKey(KeyCode.W))
-			eventLog.AddEvent("Player Moves Right");
+			eventLog.AddEvent("Player Moves Forward");
 	}
 }
