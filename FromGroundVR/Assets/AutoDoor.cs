@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,7 +23,7 @@ public class AutoDoor : MonoBehaviour {
 				CurDoor = comp;
 
 		}
-		Debug.Log(CurDoor);
+		//Debug.Log(CurDoor);
 	}
 	
 	// Update is called once per frame
@@ -33,17 +33,16 @@ public class AutoDoor : MonoBehaviour {
 			if (!DoorOpen) {
 				Quaternion targetRotation = Quaternion.Euler (0, 0, doorOpenAngle);
 				CurDoor.transform.localRotation = Quaternion.Slerp (CurDoor.transform.localRotation, targetRotation, smooth * Time.deltaTime);
-
-				if (CurDoor.transform.localRotation.z > doorOpenAngle) {
+				
+				if (CurDoor.transform.localRotation.eulerAngles.z > doorOpenAngle) {
 					DoorOpen = true;
 				}
 			}
 		} else {
-			if (DoorOpen) {
-
+			if (DoorOpen || (CurDoor.transform.localRotation.eulerAngles.z > doorCloseAngle)) {
 				Quaternion targetRotation2 = Quaternion.Euler (0, 0, doorCloseAngle);
 				CurDoor.transform.localRotation = Quaternion.Slerp (CurDoor.transform.localRotation, targetRotation2, smooth * Time.deltaTime);
-				if (CurDoor.transform.localRotation.z < doorCloseAngle) {
+				if (CurDoor.transform.localRotation.eulerAngles.z < doorCloseAngle) {
 					DoorOpen = false;			
 				}
 			}
