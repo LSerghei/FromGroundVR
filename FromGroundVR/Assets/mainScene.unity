@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -14664,7 +14664,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 562603426}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.889, y: -0.513, z: -28.217}
+  m_LocalPosition: {x: 4.889, y: -0.513, z: -31.747}
   m_LocalScale: {x: 0.22076087, y: 0.22076087, z: 0.22076087}
   m_Children:
   - {fileID: 1012474246}
@@ -25191,8 +25191,8 @@ Transform:
   - {fileID: 1437974271}
   - {fileID: 1505611735}
   - {fileID: 193058691}
-  - {fileID: 1918837663}
   - {fileID: 1804604959}
+  - {fileID: 1918837663}
   - {fileID: 686707212}
   - {fileID: 1585263770}
   - {fileID: 1695146819}
@@ -25935,6 +25935,7 @@ GameObject:
   - component: {fileID: 1024413753}
   - component: {fileID: 1024413752}
   - component: {fileID: 1024413751}
+  - component: {fileID: 1024413756}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -25953,6 +25954,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5500956793f8b784baf82ce4ddadb626, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PaintTop: 1
+  PaintLeft: 1
+  PaintRight: 1
+  PaintFront: 1
+  PaintBack: 0
+  PaintBottom: 0
 --- !u!65 &1024413752
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25960,11 +25967,11 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1024413750}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.942093, y: 1, z: 2.5372734}
+  m_Center: {x: -0.09109753, y: 0, z: -0.7686367}
 --- !u!23 &1024413753
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26014,12 +26021,28 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1024413750}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.227, y: 0.641, z: -30.262}
+  m_LocalPosition: {x: 1.35, y: -0.266, z: -27.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1024413756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1024413750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e06a45b71090474eafceffe565bcc38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DoorOpen: 0
+  PlayerNear: 0
+  doorOpenAngle: 90
+  doorCloseAngle: 0
+  smooth: 5
 --- !u!1 &1026125779
 GameObject:
   m_ObjectHideFlags: 0
@@ -43200,7 +43223,7 @@ Transform:
   - {fileID: 285403198}
   - {fileID: 187683125}
   m_Father: {fileID: 1002736234}
-  m_RootOrder: 79
+  m_RootOrder: 78
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &1807970351
 GameObject:
