@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	//public float speed;
 	public float rotSpeed = 90; // rotate speed in degrees/second
+	public int FPS = 0;
 
 	private CharacterController fplayer;
 	private PlayerLog eventLog;
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update() //FixedUpdate()
 	{
+		FPS = (int)(1.0f / Time.deltaTime);
 		/*
 		if (fplayer.isGrounded)
 		{	
